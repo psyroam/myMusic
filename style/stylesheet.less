@@ -1,0 +1,289 @@
+@font-face {
+  font-family: 'Coding';
+  src: url('./../coder/coder.ttf');
+}
+
+@main_font:monospace;
+@link_font:'Verdana';
+@background_img:'bg.jpg';
+@logo_img:'lg.png';
+@menue_backgroundcolor:#3A4043;
+@header_background_color:#330f0f;
+@header_height:125px;
+@header_margin_left:10px;
+@header_MEDT_left:10px;
+@header_MEDT_width:175px;
+@header_LOGOANDMEDT_left: @header_margin_left + @header_MEDT_width + @header_MEDT_left; 
+@left_bar_width:250px;
+@left_bar_background:#574f4f;
+
+*{
+	margin:0px;
+	padding:0px;
+	font-family:@main_font;
+	color:white;
+	font-size: 15px;
+}
+html{
+	height:100%;
+	width: 100%;
+	overflow: hidden;
+}
+body{
+	height:auto;
+	width:auto;
+	background: #5b1a1a;
+}
+a{
+	&:link{
+		font-family: @link_font;
+		text-decoration: none;
+		color:white;
+	}
+	&:hover{
+		text-decoration: underline;
+	}
+}
+input{
+	color:green;
+}
+
+#page{
+	height:100%;
+	width:100%;
+}
+#header{
+	height: @header_height;
+	width:100%;
+	background: @header_background_color;
+
+	#logo{
+		margin-left:@header_margin_left;
+		top:10px;
+		height:40px;
+		width: 40px;
+		float:left;
+		border-radius: 40px;
+		position: relative;
+		background: url(@logo_img) no-repeat;
+		background-size: 100% auto;
+	}
+
+	#bars{
+		height:@header_height;
+		width:63%;
+		position: absolute;
+		left:@header_LOGOANDMEDT_left + 25;
+	}
+	
+	#MEDT{
+		height:100%;
+		width:@header_MEDT_width;
+		position: relative;
+		left:@header_MEDT_left;
+		padding-top:1%;
+	}
+
+
+	#running_conf{
+		height:300px;
+		width: 250px;
+		position: absolute;
+		right: 0px;
+		top: @header_height - 80;
+
+		#info{
+			height: 50px;
+			width:100%;
+
+			#margin{
+				height: 100%;
+				width:88%;
+				margin-left:15px;
+
+				.margin{
+					position: relative;
+					top:3.5px;
+					float: left;
+				}
+
+				#play_pause_btn{
+					height:35px;
+					width:35px;
+					margin-left:7.5px;
+				}
+				#prev{
+					height:35px;
+					width:35px;
+					margin-left:7.5px;
+				}
+				#next{
+					height:35px;
+					width:35px;
+					margin-left:7.5px;
+				}
+			}			
+		}
+
+		#runner{
+			width:100%;
+			margin-top:7.5px;
+		}
+	}
+}
+#menue
+	{
+		display: none;
+		position: absolute;
+		background-color:#3A4043;
+		width:100%;
+		height:36px;
+		top: @header_height;
+
+		menuitem{
+			display:inline;
+			float:left;
+			margin-left:15px;
+			margin-right:15px;
+			padding-top:5.5px;
+		}
+
+		#search
+		{
+			height:100%;
+			position: absolute;
+			width:auto;
+			right:25px;
+			bottom: 0px;
+
+			input{
+				float:left;
+				margin-top: 7.5px;
+			}
+
+			input[type=image]
+			{
+				height: 20px;
+				width:20px;
+				margin-top: 7.5px;
+				margin-left:5px;
+			}
+		}
+	}
+
+#left_bar{
+	height:100%;
+	overflow: hidden;
+	width:@left_bar_width;
+	background: @left_bar_background;
+	float: left;
+	position: relative;
+	box-shadow: 10px 10px 28px -10px rgba(0,0,0,0.75);
+
+	menuitem{
+		margin-left:15px;
+		width:100%;
+	}
+
+	#close
+	{
+		position: absolute;
+		top:7.5px;
+		right:8.5px;
+		height: 25px;
+		width:25px;
+		background: black;
+	}
+}
+
+	#header h1:hover > #heart{
+		color:red;	
+	}
+
+	#login{
+		position: absolute;
+		top:0px;
+		right:5px;
+	}
+#wrapper{
+	height:95%;
+	width:100%;
+	
+}
+	#options{
+		height:auto;
+		width:100%;
+	}
+	#content{
+		height:auto;
+		position: relative;
+		width:78%;
+		
+		text-align: center;
+		@step:25px;
+		top:@step;
+		margin-left:@left_bar_width+@step;
+		box-shadow: 10px 10px 28px 0px rgba(0,0,0,0.75);
+
+		table td{
+			padding:25px;
+		}
+
+		#inner_content{
+			height:80%;
+			width:100%;
+			overflow: auto;
+
+			@album_class_margin_top:35px;
+
+			#prev{
+				position: absolute;
+				right: 75px;
+				top:5px;
+			}
+
+			#next{
+				position: absolute;
+				right: 5px;
+				top:5px;
+			}
+
+			.album{
+				float:left;
+				width:20%;
+				height:150px;
+				margin-left: 4%;
+				margin-top:@album_class_margin_top;
+				position: relative;
+
+
+				img{
+					height:100%;
+					width:100%;
+					border-radius: 10px;
+				
+					&:hover{
+						box-shadow: 0px 0px 10px 5px #FFF2FF;
+					}
+				}
+			}
+		}
+	}
+#errors{
+	position: absolute;
+	left:15px;
+	bottom: 15px;
+	color:black;
+	#error_msg_title{
+
+	}
+
+	#error_msg_text{
+
+	}
+
+	.error_msg{
+		
+		
+	}
+}
